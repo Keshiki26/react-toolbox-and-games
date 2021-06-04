@@ -9,7 +9,13 @@ function Selection(props) {
 	const [currentState, setCurrentState] = useState('tools');
 
 	return (
-		<Grid item container className="selection-cont" direction="column">
+		<Grid
+			item
+			container
+			className="selection-cont"
+			direction="column"
+			justify="flex-end"
+		>
 			{/* TOP */}
 			<Grid item container className="selection-bar-cont" justify="center">
 				{/* GAMES TEXT*/}
@@ -17,6 +23,8 @@ function Selection(props) {
 					item
 					className="selection-bar-option"
 					xs={6}
+					justify="center"
+					container
 					onClick={() => setCurrentState('games')}
 				>
 					<Typography
@@ -26,7 +34,7 @@ function Selection(props) {
 							borderBottom: currentState === 'tools' ? '' : '3px solid white',
 						}}
 						className="selection-bar-text helvetica-neue-font"
-						variant="h6"
+						variant="p"
 					>
 						Games
 					</Typography>
@@ -35,12 +43,14 @@ function Selection(props) {
 				<Grid
 					item
 					xs={6}
+					justify="center"
+					container
 					className="selection-bar-option helvetica-neue-font"
 					onClick={() => setCurrentState('tools')}
 				>
 					<Typography
 						align="center"
-						variant="h6"
+						variant="p"
 						style={{
 							fontWeight: currentState === 'tools' ? 600 : 300,
 							borderBottom: currentState === 'games' ? '' : '3px solid white',
