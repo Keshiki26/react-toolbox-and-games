@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-toolbox-and-games"]=this["webpackJsonpreact-toolbox-and-games"]||[]).push([[0],{10:function(t,e,n){"use strict";n.r(e);n(1);var o=n(3),a=n.n(o),s=(n(8),n(0));var c=function(){return Object(s.jsx)("div",{className:"App"})};a.a.render(Object(s.jsx)(c,{}),document.getElementById("root"))},8:function(t,e,n){}},[[10,1,2]]]);
-//# sourceMappingURL=main.02748ff2.chunk.js.map
