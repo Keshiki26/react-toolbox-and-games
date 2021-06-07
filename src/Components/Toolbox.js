@@ -1,5 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React, { Component } from 'react';
+import Modal from './Modal';
 import Screen from './Screen';
 import Selection from './Selection';
 
@@ -49,9 +50,13 @@ class Toolbox extends Component {
 		currentGamePage: 1,
 		currentToolPage: 1,
 		currentApp: 'welcome',
+		game: null,
 	};
 	changeCurrentApp = (newapp) => {
 		this.setState({ currentApp: newapp });
+		if (newapp === 'welcome') {
+			this.setState({ game: null });
+		}
 	};
 	changeCurrentGamePage = (c, type) => {
 		if (type === 'games') {
@@ -62,6 +67,11 @@ class Toolbox extends Component {
 			const newP = this.state.currentToolPage + c;
 			if (newP <= this.state.tools.length && newP > 0)
 				this.setState({ currentToolPage: newP });
+		}
+	};
+	changeCurrentGame = () => {
+		if (this.state.currentApp !== 'welcome') {
+			this.setState({ game: this.state.currentGame });
 		}
 	};
 	render() {
@@ -76,7 +86,13 @@ class Toolbox extends Component {
 				direction="column"
 				className="toolbox-cont"
 			>
-				<Screen currentApp={this.state.currentApp} />
+				{this.state.game !== null && (
+					<Modal changeCurrentApp={this.changeCurrentApp} />
+				)}
+				<Screen
+					currentApp={this.state.currentApp}
+					changeCurrentGame={this.changeCurrentGame}
+				/>
 				<Selection
 					games={this.state.games}
 					tools={this.state.tools}

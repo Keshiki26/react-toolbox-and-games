@@ -4,6 +4,7 @@
 .main-cont {
 	height: 100vh;
 	overflow: hidden;
+	position: relative;
 }
 .helvetica-neue-font {
 	font-family: 'Helvetica Neue' !important;
@@ -131,4 +132,13 @@
 .calc-cont {
 	height: 60%;
 	padding: 0 20px 10px 20px;
+}
+
+.modal-cont {
+	position: absolute;
+	background-color: rgb(147, 189, 147);
+	left: 0;
+	top: 0;
+	height: 100%;
+	z-index: 1;
 }

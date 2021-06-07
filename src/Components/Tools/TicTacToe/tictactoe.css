@@ -1,0 +1,27 @@
+.tic-tac-toe-main-cont {
+	background-color: black;
+	color: white;
+}
+.board-cont {
+	padding: 20px;
+}
+.tictactoe-row {
+}
+.tictactoe-each {
+	height: 15vh;
+	width: 15vh;
+	cursor: pointer;
+}
+.tictactoe-each:hover {
+	background-color: white;
+}
+.border-bot-right {
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+}
+.border-right {
+	border-right: 1px solid white;
+}
+.border-bot {
+	border-bottom: 1px solid white;
+}
