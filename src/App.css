@@ -6,6 +6,9 @@
 	overflow: hidden;
 	position: relative;
 }
+body {
+	margin: 0;
+}
 .helvetica-neue-font {
 	font-family: 'Helvetica Neue' !important;
 }
@@ -136,7 +139,7 @@
 
 .modal-cont {
 	position: absolute;
-	background-color: rgb(147, 189, 147);
+	background-color: black;
 	left: 0;
 	top: 0;
 	height: 100%;

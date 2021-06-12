@@ -8,7 +8,7 @@ function Modal(props) {
 		<Grid container className="modal-cont" direction="column">
 			<Grid item container justify="flex-end">
 				<IconButton onClick={() => props.changeCurrentApp('welcome')}>
-					<CloseIcon />
+					<CloseIcon color="secondary" />
 				</IconButton>
 			</Grid>
 			<TicTacToe />

@@ -5,15 +5,28 @@
 .board-cont {
 	padding: 20px;
 }
+.board-option-cont {
+	padding: 20px;
+}
 .tictactoe-row {
+}
+.board-center-cont {
+	position: relative;
+	overflow: hidden;
 }
 .tictactoe-each {
 	height: 15vh;
 	width: 15vh;
 	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: all 2s;
 }
-.tictactoe-each:hover {
-	background-color: white;
+.board-item-text {
+	font-size: 2em !important;
+}
+.tictac-winner {
+	font-size: 3em !important;
 }
 .border-bot-right {
 	border-bottom: 1px solid white;
@@ -24,4 +37,17 @@
 }
 .border-bot {
 	border-bottom: 1px solid white;
+}
+.tictactoe-button-picker {
+	background-color: white !important;
+	margin: 0 10px !important;
+	border: 6px solid red !important;
+	transition: all 1s;
+	filter: brightness(60%);
+}
+.tictactoe-picked {
+	filter: invert() brightness(100%);
+}
+.tictactoe-button-picker:hover {
+	filter: invert() brightness(100%) hue-rotate(97deg);
 }
