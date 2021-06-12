@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-toolbox-and-games/static/css/main.822f0be7.chunk.css",
-    "main.js": "/react-toolbox-and-games/static/js/main.9f8add80.chunk.js",
-    "main.js.map": "/react-toolbox-and-games/static/js/main.9f8add80.chunk.js.map",
+    "main.css": "/react-toolbox-and-games/static/css/main.9247e356.chunk.css",
+    "main.js": "/react-toolbox-and-games/static/js/main.4ed542e5.chunk.js",
+    "main.js.map": "/react-toolbox-and-games/static/js/main.4ed542e5.chunk.js.map",
     "runtime-main.js": "/react-toolbox-and-games/static/js/runtime-main.d2c2a292.js",
     "runtime-main.js.map": "/react-toolbox-and-games/static/js/runtime-main.d2c2a292.js.map",
-    "static/js/2.9ad29a6b.chunk.js": "/react-toolbox-and-games/static/js/2.9ad29a6b.chunk.js",
-    "static/js/2.9ad29a6b.chunk.js.map": "/react-toolbox-and-games/static/js/2.9ad29a6b.chunk.js.map",
+    "static/js/2.1c86f560.chunk.js": "/react-toolbox-and-games/static/js/2.1c86f560.chunk.js",
+    "static/js/2.1c86f560.chunk.js.map": "/react-toolbox-and-games/static/js/2.1c86f560.chunk.js.map",
     "index.html": "/react-toolbox-and-games/index.html",
-    "static/css/main.822f0be7.chunk.css.map": "/react-toolbox-and-games/static/css/main.822f0be7.chunk.css.map",
-    "static/js/2.9ad29a6b.chunk.js.LICENSE.txt": "/react-toolbox-and-games/static/js/2.9ad29a6b.chunk.js.LICENSE.txt"
+    "static/css/main.9247e356.chunk.css.map": "/react-toolbox-and-games/static/css/main.9247e356.chunk.css.map",
+    "static/js/2.1c86f560.chunk.js.LICENSE.txt": "/react-toolbox-and-games/static/js/2.1c86f560.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d2c2a292.js",
-    "static/js/2.9ad29a6b.chunk.js",
-    "static/css/main.822f0be7.chunk.css",
-    "static/js/main.9f8add80.chunk.js"
+    "static/js/2.1c86f560.chunk.js",
+    "static/css/main.9247e356.chunk.css",
+    "static/js/main.4ed542e5.chunk.js"
   ]
 }
