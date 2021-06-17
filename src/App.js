@@ -1,6 +1,6 @@
-import { Grid } from '@material-ui/core';
-import './App.css';
-import Toolbox from './Components/Toolbox';
+import { Grid } from "@material-ui/core";
+import "./App.css";
+import Toolbox from "./Components/Toolbox";
 
 function App() {
 	return (
