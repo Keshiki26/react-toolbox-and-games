@@ -62,3 +62,14 @@
 .tictactoe-button-picker:hover {
 	filter: invert() brightness(100%) hue-rotate(97deg);
 }
+
+.tictac-gamemode-options {
+	color: white !important;
+	border: 1px solid #f50057;
+}
+.tictac-gamemode {
+	padding: 5px !important;
+}
+.invis {
+	display: none !important;
+}
