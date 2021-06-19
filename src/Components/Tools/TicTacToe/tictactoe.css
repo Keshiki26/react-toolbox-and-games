@@ -25,6 +25,13 @@
 }
 .board-item-text {
 	font-size: 2em !important;
+	font-weight: bold !important;
+}
+.board-item-x {
+	color: #b9b2f7;
+}
+.board-item-o {
+	color: #fad7c0;
 }
 .tictac-rando-lost {
 	color: rgb(160, 160, 160);
@@ -53,14 +60,14 @@
 	background-color: white !important;
 	margin: 0 10px !important;
 	border: 6px solid red !important;
-	transition: all 1s;
 	filter: brightness(60%);
 }
 .tictactoe-picked {
-	filter: invert() brightness(100%);
+	filter: brightness(100%) hue-rotate(97deg) contrast(100%);
+	border: 10px solid red !important;
 }
 .tictactoe-button-picker:hover {
-	filter: invert() brightness(100%) hue-rotate(97deg);
+	filter: brightness(100%) hue-rotate(97deg);
 }
 
 .tictac-gamemode-options {

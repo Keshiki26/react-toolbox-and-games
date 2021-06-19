@@ -4,7 +4,6 @@ import {
 	IconButton,
 	Typography,
 	Select,
-	InputLabel,
 	MenuItem,
 } from "@material-ui/core";
 import React, { useState } from "react";
@@ -15,11 +14,18 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import _ from "lodash";
 
 function TicTacToe(props) {
+	//players pick
 	const options = ["X", "O", ""];
 	const [player, setPlayer] = useState(2);
+	//win or not
+
 	const [isWinner, setIsWinner] = useState([]);
 	const [currentWinner, setCurrentWinner] = useState("none");
-	const [gameMode, setGameMode] = useState("HvEAI");
+	//gamemode pick
+	const [gameMode, setGameMode] = useState("HvH");
+	//AI making move timeout
+	const [aiMakingMove, setAiMakingMove] = useState(false);
+	//default board
 	const resetBoard = [
 		[
 			{ number: 1, current: "" },
@@ -37,7 +43,7 @@ function TicTacToe(props) {
 			{ number: 9, current: "" },
 		],
 	];
-
+	//Checks win (two modes - check and change board or just check a board)
 	const checkWin = (b, check = false, win = false, winner = "none") => {
 		for (let i = 0; i < b.length; i++) {
 			//horizantal
@@ -114,7 +120,7 @@ function TicTacToe(props) {
 
 		return [win, winner];
 	};
-
+	//Make the AI MOVE (0.5 sec, check board for win etc all that)
 	const makeAiMove = (thisTheMove) => {
 		let tempBoard = [...board];
 		//Make that one move
@@ -128,99 +134,62 @@ function TicTacToe(props) {
 		});
 		setBoard(tempBoard);
 		checkWin(tempBoard);
+		setAiMakingMove(false);
 	};
-
-	const easyAI = async (b) => {
-		//find a possible random move to make
-		const possibleMoves = b
-			.flat()
-			.map((c) => {
-				if (c["current"] === "") {
-					return c["number"];
-				}
-				return null;
-			})
-			.filter((c) => c !== null);
-		// if no more possible moves then it is a tie
-		if (possibleMoves.length === 0) {
-			setCurrentWinner("Tie");
-		}
+	//Different AI's
+	const easyAI = async (possibleMoves) => {
 		const thisTheMove =
 			possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
-
+		setAiMakingMove(true);
 		setTimeout(() => makeAiMove(thisTheMove), 500);
 	};
-	const hardAI = async (b) => {
-		//find list of possible moves
-		const possibleMoves = b
-			.flat()
-			.map((c) => {
-				if (c["current"] === "") {
-					return c["number"];
-				}
-				return null;
-			})
-			.filter((c) => c !== null);
-		// if no more possible moves then it is a tie
-		if (possibleMoves.length === 0) {
-			setCurrentWinner("Tie");
-		}
+	const hardAI = async (b, possibleMoves) => {
 		//go through each move checking out wins or losses
 		const moveToMake = possibleMoves.reduce(
-			(a, c, i) => {
+			(a, c) => {
 				let tempBoard = _.cloneDeep(b);
-				console.log(tempBoard);
-
+				let boardCurRef = null;
 				//Make that one move as AI and check win
-				tempBoard.map((cc) => {
-					return cc.map((aa) => {
-						if (aa["number"] === c) {
-							aa["current"] =
+				for (let i = 0; i < tempBoard.length; i++) {
+					for (let j = 0; j < tempBoard[i].length; j++) {
+						if (tempBoard[i][j]["number"] === c) {
+							boardCurRef = tempBoard[i][j];
+							tempBoard[i][j]["current"] =
 								player === 1 ? "X" : player === 0 ? "O" : "";
 						}
-						return aa;
-					});
-				});
+					}
+				}
 				let checkIfWinner = checkWin(tempBoard, true);
 				if (checkIfWinner[0] === true) {
 					a[0].push(c);
 					return a;
 				}
-
 				//Make that one move as Player and check win
-				tempBoard.map((cc) => {
-					return cc.map((aa) => {
-						if (aa["number"] === c) {
-							aa["current"] =
-								player === 1 ? "O" : player === 0 ? "X" : "";
-						}
-						return aa;
-					});
-				});
-				checkIfWinner = checkWin(tempBoard, true);
-				if (checkIfWinner[0] === true) {
-					a[1].push(c);
-					return a;
+				if (boardCurRef !== null) {
+					boardCurRef["current"] =
+						player === 1 ? "O" : player === 0 ? "X" : "";
+					checkIfWinner = checkWin(tempBoard, true);
+					if (checkIfWinner[0] === true) {
+						a[1].push(c);
+						return a;
+					}
 				}
-
 				a[2].push(c);
 				return a;
 			},
 			[[], [], []]
 		);
-		let thisTheMove =
-			moveToMake[2][Math.floor(Math.random() * moveToMake[2].length)];
-		if (moveToMake[0].length > 0) {
-			thisTheMove =
-				moveToMake[0][Math.floor(Math.random() * moveToMake[0].length)];
-		} else if (moveToMake[1].length > 0) {
-			thisTheMove =
-				moveToMake[1][Math.floor(Math.random() * moveToMake[1].length)];
-		}
+		const winLossTie =
+			moveToMake[0].length > 0 ? 0 : moveToMake[1].length > 0 ? 1 : 2;
+		const thisTheMove =
+			moveToMake[winLossTie][
+				Math.floor(Math.random() * moveToMake[winLossTie].length)
+			];
+		setAiMakingMove(true);
 		setTimeout(() => makeAiMove(thisTheMove), 500);
-		console.log(moveToMake);
 	};
 
+	//setUpto create new game
 	const newGame = () => {
 		setCurrentWinner("none");
 		setIsWinner([]);
@@ -267,19 +236,48 @@ function TicTacToe(props) {
 								if (
 									cc["current"] !== "X" &&
 									cc["current"] !== "O" &&
-									currentWinner === "none"
+									currentWinner === "none" &&
+									!aiMakingMove
 								) {
 									//Make Player Move
 									let tempBoard = [...board];
 									tempBoard[i][ii]["current"] =
 										options[player];
 									setBoard(tempBoard);
-									//AI MOVES
+
 									if (!checkWin(tempBoard)[0]) {
-										if (gameMode === "HvEAI")
-											easyAI(tempBoard);
-										if (gameMode === "HvHAI")
-											hardAI(tempBoard);
+										//AI MOVES
+
+										//find a possible random move to make
+										const possibleMoves = tempBoard
+											.flat()
+											.map((c) => {
+												if (c["current"] === "") {
+													return c["number"];
+												}
+												return null;
+											})
+											.filter((c) => c !== null);
+										// if no more possible moves then it is a tie
+										if (possibleMoves.length === 0) {
+											setCurrentWinner("Tie");
+										}
+										if (
+											gameMode === "HvEAI" ||
+											gameMode === "HvHAI"
+										) {
+											if (gameMode === "HvEAI")
+												easyAI(possibleMoves);
+											if (gameMode === "HvHAI")
+												hardAI(
+													tempBoard,
+													possibleMoves
+												);
+										}
+										// HUMAN V HUMAN MOVES
+										if (gameMode === "HvH") {
+											setPlayer(player === 1 ? 0 : 1);
+										}
 									}
 								} else if (currentWinner !== "none") {
 									newGame();
@@ -292,6 +290,12 @@ function TicTacToe(props) {
 										? "tictac-winner"
 										: isWinner.length === 3
 										? "tictac-rando-lost"
+										: ""
+								} ${
+									board[i][ii]["current"] === "X"
+										? "board-item-x"
+										: board[i][ii]["current"] === "O"
+										? "board-item-o"
 										: ""
 								}`}
 								color={`${
@@ -345,7 +349,7 @@ function TicTacToe(props) {
 						autoWidth={true}
 					>
 						<MenuItem value="HvEAI">Human vs Easy AI</MenuItem>
-						{/* <MenuItem value="HvH">Human vs Human</MenuItem> */}
+						<MenuItem value="HvH">Human vs Human</MenuItem>
 						<MenuItem value="HvHAI">Human vs Hard AI</MenuItem>
 					</Select>
 				</FormControl>
@@ -358,7 +362,7 @@ function TicTacToe(props) {
 				alignItems="center"
 				direction="row"
 			>
-				Choose:
+				{gameMode !== "HvH" ? "Choose: " : "Turn: "}
 				<IconButton
 					className={`tictactoe-button-picker ${
 						player === 0 ? "tictactoe-picked" : ""
@@ -414,13 +418,20 @@ function TicTacToe(props) {
 				direction="row"
 			>
 				<Typography color="secondary" className="tictac-result-text">
-					{currentWinner === options[player]
-						? "Player Wins!"
-						: currentWinner === "none"
-						? ""
-						: currentWinner === "Tie"
-						? "It's a Tie..."
-						: "AI Wins!"}
+					{gameMode !== "HvH" &&
+						(currentWinner === options[player]
+							? "Player Wins!"
+							: currentWinner === "none"
+							? ""
+							: currentWinner === "Tie"
+							? "It's a Tie..."
+							: "AI Wins!")}
+					{gameMode === "HvH" &&
+						(currentWinner === "Tie"
+							? "It's a Tie..."
+							: currentWinner === "none"
+							? ""
+							: `${options[player].toUpperCase()} Wins!`)}
 				</Typography>
 			</Grid>
 		</Grid>
