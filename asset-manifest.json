@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-toolbox-and-games/static/css/main.2d295f7c.chunk.css",
-    "main.js": "/react-toolbox-and-games/static/js/main.47b1f019.chunk.js",
-    "main.js.map": "/react-toolbox-and-games/static/js/main.47b1f019.chunk.js.map",
+    "main.js": "/react-toolbox-and-games/static/js/main.90a665df.chunk.js",
+    "main.js.map": "/react-toolbox-and-games/static/js/main.90a665df.chunk.js.map",
     "runtime-main.js": "/react-toolbox-and-games/static/js/runtime-main.d2c2a292.js",
     "runtime-main.js.map": "/react-toolbox-and-games/static/js/runtime-main.d2c2a292.js.map",
     "static/js/2.949b26e5.chunk.js": "/react-toolbox-and-games/static/js/2.949b26e5.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.d2c2a292.js",
     "static/js/2.949b26e5.chunk.js",
     "static/css/main.2d295f7c.chunk.css",
-    "static/js/main.47b1f019.chunk.js"
+    "static/js/main.90a665df.chunk.js"
   ]
 }
