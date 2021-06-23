@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-toolbox-and-games/static/css/main.0667858d.chunk.css",
-    "main.js": "/react-toolbox-and-games/static/js/main.0b5059cb.chunk.js",
-    "main.js.map": "/react-toolbox-and-games/static/js/main.0b5059cb.chunk.js.map",
+    "main.css": "/react-toolbox-and-games/static/css/main.2d295f7c.chunk.css",
+    "main.js": "/react-toolbox-and-games/static/js/main.47b1f019.chunk.js",
+    "main.js.map": "/react-toolbox-and-games/static/js/main.47b1f019.chunk.js.map",
     "runtime-main.js": "/react-toolbox-and-games/static/js/runtime-main.d2c2a292.js",
     "runtime-main.js.map": "/react-toolbox-and-games/static/js/runtime-main.d2c2a292.js.map",
     "static/js/2.949b26e5.chunk.js": "/react-toolbox-and-games/static/js/2.949b26e5.chunk.js",
     "static/js/2.949b26e5.chunk.js.map": "/react-toolbox-and-games/static/js/2.949b26e5.chunk.js.map",
     "index.html": "/react-toolbox-and-games/index.html",
-    "static/css/main.0667858d.chunk.css.map": "/react-toolbox-and-games/static/css/main.0667858d.chunk.css.map",
+    "static/css/main.2d295f7c.chunk.css.map": "/react-toolbox-and-games/static/css/main.2d295f7c.chunk.css.map",
     "static/js/2.949b26e5.chunk.js.LICENSE.txt": "/react-toolbox-and-games/static/js/2.949b26e5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d2c2a292.js",
     "static/js/2.949b26e5.chunk.js",
-    "static/css/main.0667858d.chunk.css",
-    "static/js/main.0b5059cb.chunk.js"
+    "static/css/main.2d295f7c.chunk.css",
+    "static/js/main.47b1f019.chunk.js"
   ]
 }
