@@ -313,13 +313,7 @@ function TicTacToe(props) {
 		);
 	});
 	return (
-		<Grid
-			item
-			container
-			className="tic-tac-toe-main-cont"
-			justify="center"
-			align
-		>
+		<Grid item container className="tic-tac-toe-main-cont" justify="center">
 			Tic Tac Toe
 			{/* Player Selection */}
 			<Grid

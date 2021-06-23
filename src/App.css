@@ -1,16 +1,16 @@
 .toolbox-cont {
 	height: 100%;
+	position: relative;
 }
 .main-cont {
 	height: 100vh;
-	overflow: hidden;
-	position: relative;
+	background-color: black;
 }
 body {
 	margin: 0;
 }
 .helvetica-neue-font {
-	font-family: 'Helvetica Neue' !important;
+	font-family: "Helvetica Neue" !important;
 }
 .screen-cont {
 	background-color: rgb(0, 0, 0);
@@ -39,9 +39,10 @@ body {
 	cursor: pointer;
 	height: 20%;
 	border-top: 1px dotted white;
+	border-bottom: 1px dotted white;
 }
 .selection-bar-option {
-	padding: 10px;
+	padding: 15px;
 	color: white;
 }
 .selection-bar-option:hover {
@@ -138,10 +139,10 @@ body {
 }
 
 .modal-cont {
-	position: absolute;
-	background-color: black;
-	left: 0;
-	top: 0;
+	background-color: rgb(0, 0, 0);
 	height: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
 	z-index: 1;
 }
