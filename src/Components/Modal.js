@@ -4,6 +4,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import TicTacToe from "./Tools/TicTacToe/TicTacToe";
 
 function Modal(props) {
+	const isAppInGames = props.isAppInGames(props.currentApp);
 	return (
 		<Grid
 			container
@@ -13,11 +14,11 @@ function Modal(props) {
 			alignContent="flex-start"
 		>
 			<Grid item container justify="flex-end">
-				<IconButton onClick={() => props.changeCurrentApp("welcome")}>
+				<IconButton onClick={() => props.exitModal()}>
 					<CloseIcon color="secondary" />
 				</IconButton>
 			</Grid>
-			<TicTacToe />
+			{isAppInGames && props.currentApp === "TicTacToe" && <TicTacToe />}
 		</Grid>
 	);
 }

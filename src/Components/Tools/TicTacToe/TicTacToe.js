@@ -22,7 +22,7 @@ function TicTacToe(props) {
 	const [isWinner, setIsWinner] = useState([]);
 	const [currentWinner, setCurrentWinner] = useState("none");
 	//gamemode pick
-	const [gameMode, setGameMode] = useState("HvH");
+	const [gameMode, setGameMode] = useState("HvHAI");
 	//AI making move timeout
 	const [aiMakingMove, setAiMakingMove] = useState(false);
 	//default board

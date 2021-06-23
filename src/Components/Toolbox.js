@@ -70,10 +70,10 @@ class Toolbox extends Component {
 			}, false);
 		if (isAnApp) {
 			this.setState({ currentApp: newapp });
-		} else if (newapp === "welcome") {
-			this.setState({ currentApp: newapp });
-			this.setState({ game: null });
 		}
+	};
+	exitModal = () => {
+		this.setState({ game: null });
 	};
 	changeCurrentGamePage = (c, type) => {
 		if (type === "games") {
@@ -105,7 +105,12 @@ class Toolbox extends Component {
 				className="toolbox-cont"
 			>
 				{this.state.game !== null && (
-					<Modal changeCurrentApp={this.changeCurrentApp} />
+					<Modal
+						changeCurrentApp={this.changeCurrentApp}
+						currentApp={this.state.currentApp}
+						isAppInGames={this.isAppInGames}
+						exitModal={this.exitModal}
+					/>
 				)}
 				<Screen
 					currentApp={this.state.currentApp}
